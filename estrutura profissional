@@ -1,0 +1,149 @@
+esthan-sushi/
+├── .github/
+│   └── workflows/
+│       ├── deploy.yml
+│       └── ci.yml
+│
+├── public/
+│   ├── favicon.ico
+│   ├── logo.png
+│   ├── banner.jpg
+│   ├── robots.txt
+│   └── manifest.json
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   ├── fonts/
+│   │   └── animations/
+│   │
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Sidebar.jsx
+│   │   ├── Banner.jsx
+│   │   ├── SearchBar.jsx
+│   │   ├── CategoryCard.jsx
+│   │   ├── ProductCard.jsx
+│   │   ├── CartDrawer.jsx
+│   │   ├── QuantitySelector.jsx
+│   │   ├── WhatsAppButton.jsx
+│   │   ├── PixQRCode.jsx
+│   │   ├── Loading.jsx
+│   │   ├── Modal.jsx
+│   │   ├── Table.jsx
+│   │   ├── Button.jsx
+│   │   ├── Input.jsx
+│   │   ├── Card.jsx
+│   │   ├── Alert.jsx
+│   │   ├── Badge.jsx
+│   │   ├── Charts.jsx
+│   │   └── Notification.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Cardapio.jsx
+│   │   ├── Produto.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── PedidoSucesso.jsx
+│   │   ├── Login.jsx
+│   │   ├── Cadastro.jsx
+│   │   ├── Perfil.jsx
+│   │   ├── Promocoes.jsx
+│   │   ├── Contato.jsx
+│   │   ├── Sobre.jsx
+│   │   └── NotFound.jsx
+│   │
+│   ├── admin/
+│   │   ├── Dashboard.jsx
+│   │   ├── Produtos.jsx
+│   │   ├── NovoProduto.jsx
+│   │   ├── EditarProduto.jsx
+│   │   ├── Pedidos.jsx
+│   │   ├── PedidoDetalhes.jsx
+│   │   ├── Clientes.jsx
+│   │   ├── Estoque.jsx
+│   │   ├── Financeiro.jsx
+│   │   ├── Cupons.jsx
+│   │   ├── Chatbot.jsx
+│   │   ├── Configuracoes.jsx
+│   │   └── Usuarios.jsx
+│   │
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   ├── CartContext.jsx
+│   │   ├── ThemeContext.jsx
+│   │   └── NotificationContext.jsx
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useCart.js
+│   │   ├── useFirestore.js
+│   │   ├── useStorage.js
+│   │   └── useWhatsApp.js
+│   │
+│   ├── services/
+│   │   ├── firebase.js
+│   │   ├── auth.js
+│   │   ├── firestore.js
+│   │   ├── storage.js
+│   │   ├── orderService.js
+│   │   ├── paymentService.js
+│   │   ├── couponService.js
+│   │   ├── chatbotService.js
+│   │   └── whatsappService.js
+│   │
+│   ├── routes/
+│   │   ├── AppRoutes.jsx
+│   │   ├── PrivateRoute.jsx
+│   │   └── AdminRoute.jsx
+│   │
+│   ├── layouts/
+│   │   ├── MainLayout.jsx
+│   │   ├── AdminLayout.jsx
+│   │   └── AuthLayout.jsx
+│   │
+│   ├── data/
+│   │   ├── categorias.js
+│   │   ├── produtos.js
+│   │   ├── promocoes.js
+│   │   └── bairros.js
+│   │
+│   ├── utils/
+│   │   ├── currency.js
+│   │   ├── formatDate.js
+│   │   ├── validators.js
+│   │   ├── constants.js
+│   │   └── helpers.js
+│   │
+│   ├── styles/
+│   │   ├── globals.css
+│   │   ├── variables.css
+│   │   └── animations.css
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── firebase/
+│   ├── firestore.rules
+│   ├── firestore.indexes.json
+│   ├── storage.rules
+│   ├── firebase.json
+│   └── .firebaserc
+│
+├── docs/
+│   ├── instalacao.md
+│   ├── firebase.md
+│   ├── api.md
+│   ├── deploy.md
+│   └── arquitetura.md
+│
+├── .env.example
+├── .gitignore
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── README.md
+└── LICENSE
