@@ -1,0 +1,147 @@
+import { Link } from "react-router-dom";
+
+export default function Home() {
+  const categorias = [
+    { nome: "Temakis", emoji: "🌯" },
+    { nome: "Hot Rolls", emoji: "🔥" },
+    { nome: "Uramakis", emoji: "🍣" },
+    { nome: "Combinados", emoji: "🍱" },
+    { nome: "Barcas", emoji: "🚤" },
+    { nome: "Bebidas", emoji: "🥤" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-white">
+
+      {/* Header */}
+      <header className="bg-black border-b border-yellow-500 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between p-5">
+          <h1 className="text-3xl font-bold text-yellow-400">
+            🍣 Esthan Sushi
+          </h1>
+
+          <nav className="space-x-6">
+            <Link to="/" className="hover:text-yellow-400">
+              Início
+            </Link>
+
+            <Link to="/cardapio" className="hover:text-yellow-400">
+              Cardápio
+            </Link>
+
+            <Link to="/promocoes" className="hover:text-yellow-400">
+              Promoções
+            </Link>
+
+            <Link to="/login" className="hover:text-yellow-400">
+              Admin
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* Banner */}
+      <section className="bg-red-700 py-24 text-center">
+        <h2 className="text-5xl font-bold text-yellow-300">
+          O sabor do Japão perto de você
+        </h2>
+
+        <p className="mt-6 text-xl">
+          Temakis • Hot Rolls • Uramakis • Combinados • Delivery
+        </p>
+
+        <Link
+          to="/cardapio"
+          className="inline-block mt-10 bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl hover:bg-yellow-300"
+        >
+          Ver Cardápio
+        </Link>
+      </section>
+
+      {/* Categorias */}
+      <section className="max-w-7xl mx-auto py-16 px-6">
+        <h2 className="text-4xl text-center text-yellow-400 font-bold mb-12">
+          Nosso Cardápio
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {categorias.map((categoria) => (
+            <div
+              key={categoria.nome}
+              className="bg-zinc-900 rounded-2xl p-6 text-center hover:bg-red-700 transition"
+            >
+              <div className="text-5xl">{categoria.emoji}</div>
+
+              <h3 className="mt-4 text-lg font-semibold">
+                {categoria.nome}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Destaques */}
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center text-yellow-400 font-bold mb-10">
+          Destaques
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="bg-zinc-900 rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="/banner.jpg"
+              alt="Temaki Salmão"
+              className="w-full h-56 object-cover"
+            />
+
+            <div className="p-5">
+              <h3 className="text-2xl font-bold">
+                Temaki Salmão
+              </h3>
+
+              <p className="text-gray-300 mt-2">
+                Salmão fresco, cream cheese e cebolinha.
+              </p>
+
+              <p className="text-yellow-400 text-2xl mt-4">
+                R$ 29,90
+              </p>
+
+              <button className="w-full mt-4 bg-red-600 hover:bg-red-700 py-3 rounded-xl">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Rodapé */}
+      <footer className="bg-black border-t border-yellow-500 py-10 text-center">
+
+        <h2 className="text-3xl font-bold text-yellow-400">
+          Esthan Sushi
+        </h2>
+
+        <p className="mt-3">
+          📍 Seu endereço
+        </p>
+
+        <p>
+          📞 (11) 99999-9999
+        </p>
+
+        <p>
+          Instagram: @esthansushi
+        </p>
+
+        <p className="mt-6 text-gray-400">
+          © 2026 Esthan Sushi - Todos os direitos reservados.
+        </p>
+
+      </footer>
+
+    </div>
+  );
+}
