@@ -1,0 +1,38 @@
+src/
+├── components/
+│   ├── ProductCard.jsx
+│   ├── CategoryFilter.jsx
+│   ├── SearchBar.jsx
+│   ├── CartDrawer.jsx
+│   ├── QuantitySelector.jsx
+│   └── WhatsAppButton.jsx
+│
+├── data/
+│   ├── categories.js
+│   └── products.js
+│
+├── context/
+│   └── CartContext.jsx
+│
+├── pages/
+│   └── Cardapio.jsx
+export const categories = [
+  "Barcas",
+  "Combinados",
+  "Temakis",
+  "Hot Rolls",
+  "Uramakis",
+  "Hossomakis",
+  "Sashimis",
+  "Porções",
+  "Bebidas",
+  "Sobremesas"
+]
+{
+ id:1,
+ nome:"Temaki Salmão",
+ categoria:"Temakis",
+ preco:29.90,
+ imagem:"/produtos/temaki-salmao.jpg",
+ descricao:"Temaki de salmão fresco com cream cheese."
+}
