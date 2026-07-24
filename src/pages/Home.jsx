@@ -9,19 +9,25 @@ export default function Home() {
   return (
     <div>
       {/* Banner */}
-      <section className="bg-red-700 py-24 text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-yellow-300">
-          O sabor do Japão perto de você
-        </h2>
-        <p className="mt-6 text-lg md:text-xl">
-          Temakis • Hot Rolls • Uramakis • Combinados • Delivery
-        </p>
-        <Link
-          to="/cardapio"
-          className="inline-block mt-10 bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl hover:bg-yellow-300 transition"
-        >
-          Ver Cardápio
-        </Link>
+      <section
+        className="relative bg-cover bg-center py-32 text-center px-6"
+        style={{ backgroundImage: "url('/img/hero.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative">
+          <h2 className="text-4xl md:text-5xl font-bold text-yellow-300 drop-shadow">
+            O sabor do Japão perto de você
+          </h2>
+          <p className="mt-6 text-lg md:text-xl text-white drop-shadow">
+            Temakis • Hot Rolls • Uramakis • Combinados • Delivery
+          </p>
+          <Link
+            to="/cardapio"
+            className="inline-block mt-10 bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl hover:bg-yellow-300 transition"
+          >
+            Ver Cardápio
+          </Link>
+        </div>
       </section>
 
       {/* Categorias */}
