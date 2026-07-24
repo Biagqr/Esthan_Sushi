@@ -1,21 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Home from "../pages/Home";
-import Cardapio from "../pages/Cardapio";
-import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
-import NotFound from "../pages/NotFound";
+import MainLayout from "../layouts/MainLayout.jsx";
+import Home from "../pages/Home.jsx";
+import Cardapio from "../pages/Cardapio.jsx";
+import Login from "../pages/Login.jsx";
+import Dashboard from "../pages/Dashboard.jsx";
+import NotFound from "../pages/NotFound.jsx";
 
 export default function AppRoutes() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <Routes>
+      <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/cardapio" element={<Cardapio />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+      </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/admin" element={<Dashboard />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }

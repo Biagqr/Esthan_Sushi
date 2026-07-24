@@ -1,25 +1,7 @@
-:root {
-  color-scheme: dark;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  margin: 0;
-  background: #09090b;
-  color: #fff;
-}
-
-a {
-  color: #facc15;
-  text-decoration: none;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-}
-
-button {
-  cursor: pointer;
+html {
+  scroll-behavior: smooth;
 }

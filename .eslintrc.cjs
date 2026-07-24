@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2021: true, node: true },
+  env: { browser: true, es2021: true },
+  ignorePatterns: ["dist", "legacy", "node_modules"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -9,16 +10,12 @@ module.exports = {
   ],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   settings: { react: { version: "detect" } },
-  globals: {
-    vi: "readonly",
-    describe: "readonly",
-    it: "readonly",
-    expect: "readonly",
-    beforeEach: "readonly",
-    afterEach: "readonly",
-  },
-  ignorePatterns: ["dist", "coverage", "node_modules"],
+  plugins: ["react-refresh"],
   rules: {
+    "react-refresh/only-export-components": [
+      "warn",
+      { allowConstantExport: true },
+    ],
     "react/prop-types": "off",
   },
 };

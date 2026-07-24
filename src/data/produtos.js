@@ -5,7 +5,7 @@ export const produtos = [
     categoria: "Temakis",
     preco: 29.9,
     imagem: "/produtos/temaki-salmao.jpg",
-    descricao: "Temaki de salmão fresco com cream cheese.",
+    descricao: "Temaki de salmão fresco com cream cheese e cebolinha.",
   },
   {
     id: 2,
@@ -13,38 +13,62 @@ export const produtos = [
     categoria: "Hot Rolls",
     preco: 24.9,
     imagem: "/produtos/hot-roll-filadelfia.jpg",
-    descricao: "Hot roll empanado com salmão e cream cheese.",
+    descricao: "Hot roll empanado recheado com salmão e cream cheese.",
   },
   {
     id: 3,
-    nome: "Combinado 20 peças",
-    categoria: "Combinados",
-    preco: 79.9,
-    imagem: "/produtos/combinado-20.jpg",
-    descricao: "Seleção do chef com 20 peças variadas.",
-  },
-  {
-    id: 4,
     nome: "Uramaki Skin",
     categoria: "Uramakis",
     preco: 22.5,
     imagem: "/produtos/uramaki-skin.jpg",
-    descricao: "Uramaki com pele de salmão crocante.",
+    descricao: "Uramaki crocante de pele de salmão com cebolinha.",
+  },
+  {
+    id: 4,
+    nome: "Combinado 20 peças",
+    categoria: "Combinados",
+    preco: 79.9,
+    imagem: "/produtos/combinado-20.jpg",
+    descricao: "Seleção variada com 20 peças do chef.",
   },
   {
     id: 5,
-    nome: "Coca-Cola Lata",
+    nome: "Barca 40 peças",
+    categoria: "Barcas",
+    preco: 139.9,
+    imagem: "/produtos/barca-40.jpg",
+    descricao: "Barca completa com 40 peças para compartilhar.",
+  },
+  {
+    id: 6,
+    nome: "Sashimi Salmão (10un)",
+    categoria: "Sashimis",
+    preco: 39.9,
+    imagem: "/produtos/sashimi-salmao.jpg",
+    descricao: "Dez fatias generosas de salmão fresco.",
+  },
+  {
+    id: 7,
+    nome: "Guioza (6un)",
+    categoria: "Porções",
+    preco: 27.9,
+    imagem: "/produtos/guioza.jpg",
+    descricao: "Pastéis japoneses grelhados com molho tarê.",
+  },
+  {
+    id: 8,
+    nome: "Refrigerante Lata",
     categoria: "Bebidas",
-    preco: 6.0,
-    imagem: "/produtos/coca-lata.jpg",
-    descricao: "Refrigerante gelado 350ml.",
+    preco: 6.5,
+    imagem: "/produtos/refrigerante.jpg",
+    descricao: "Lata 350ml gelada.",
+  },
+  {
+    id: 9,
+    nome: "Sagu de Vinho",
+    categoria: "Sobremesas",
+    preco: 14.9,
+    imagem: "/produtos/sagu.jpg",
+    descricao: "Sobremesa gelada de sagu ao vinho.",
   },
 ];
-
-export function getProdutoById(id) {
-  return produtos.find((produto) => produto.id === Number(id)) || null;
-}
-
-export function getProdutosByCategoria(categoria) {
-  return produtos.filter((produto) => produto.categoria === categoria);
-}
