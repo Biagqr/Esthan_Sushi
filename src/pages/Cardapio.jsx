@@ -1,52 +1,43 @@
-import { useMemo, useState } from "react";
-import { categorias } from "../data/categorias.js";
-import { produtos } from "../data/produtos.js";
-import ProductCard from "../components/ProductCard.jsx";
-import CategoryFilter from "../components/CategoryFilter.jsx";
-import SearchBar from "../components/SearchBar.jsx";
+import { useState } from "react";
+import { produtos, getProdutosByCategoria } from "../data/produtos";
+import { categorias } from "../data/categorias";
+import { useCart } from "../context/CartContext";
+import { formatBRL } from "../utils/currency";
 
 export default function Cardapio() {
-  const [categoria, setCategoria] = useState(null);
-  const [busca, setBusca] = useState("");
+  const [categoriaAtiva, setCategoriaAtiva] = useState(null);
+  const { addItem, totalItems } = useCart();
 
-  const filtrados = useMemo(() => {
-    const termo = busca.trim().toLowerCase();
-    return produtos.filter((produto) => {
-      const porCategoria = categoria ? produto.categoria === categoria : true;
-      const porBusca = termo
-        ? produto.nome.toLowerCase().includes(termo) ||
-          produto.descricao.toLowerCase().includes(termo)
-        : true;
-      return porCategoria && porBusca;
-    });
-  }, [categoria, busca]);
+  const lista = categoriaAtiva
+    ? getProdutosByCategoria(categoriaAtiva)
+    : produtos;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="text-3xl md:text-4xl text-center text-yellow-400 font-bold mb-8">
-        Cardápio
-      </h1>
+    <div className="cardapio">
+      <header>
+        <h1>Cardápio</h1>
+        <span className="cart-count">Carrinho: {totalItems}</span>
+      </header>
 
-      <div className="space-y-6 mb-10">
-        <SearchBar value={busca} onChange={setBusca} />
-        <CategoryFilter
-          categorias={categorias}
-          selecionada={categoria}
-          onSelect={setCategoria}
-        />
+      <div className="filtros">
+        <button onClick={() => setCategoriaAtiva(null)}>Todos</button>
+        {categorias.map((c) => (
+          <button key={c} onClick={() => setCategoriaAtiva(c)}>
+            {c}
+          </button>
+        ))}
       </div>
 
-      {filtrados.length === 0 ? (
-        <p className="text-center text-gray-400 mt-16">
-          Nenhum item encontrado.
-        </p>
-      ) : (
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filtrados.map((produto) => (
-            <ProductCard key={produto.id} produto={produto} />
-          ))}
-        </div>
-      )}
+      <ul className="produtos">
+        {lista.map((produto) => (
+          <li key={produto.id} className="produto">
+            <h3>{produto.nome}</h3>
+            <p>{produto.descricao}</p>
+            <strong>{formatBRL(produto.preco)}</strong>
+            <button onClick={() => addItem(produto)}>Adicionar</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

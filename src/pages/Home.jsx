@@ -1,67 +1,48 @@
 import { Link } from "react-router-dom";
-import { categorias } from "../data/categorias.js";
-import { produtos } from "../data/produtos.js";
-import ProductCard from "../components/ProductCard.jsx";
 
 export default function Home() {
-  const destaques = produtos.slice(0, 3);
+  const categorias = [
+    { nome: "Temakis", emoji: "🌯" },
+    { nome: "Hot Rolls", emoji: "🔥" },
+    { nome: "Uramakis", emoji: "🍣" },
+    { nome: "Combinados", emoji: "🍱" },
+    { nome: "Barcas", emoji: "🚤" },
+    { nome: "Bebidas", emoji: "🥤" },
+  ];
 
   return (
-    <div>
-      {/* Banner */}
-      <section
-        className="relative bg-cover bg-center py-32 text-center px-6"
-        style={{ backgroundImage: "url('/img/hero.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative">
-          <h2 className="text-4xl md:text-5xl font-bold text-yellow-300 drop-shadow">
-            O sabor do Japão perto de você
-          </h2>
-          <p className="mt-6 text-lg md:text-xl text-white drop-shadow">
-            Temakis • Hot Rolls • Uramakis • Combinados • Delivery
-          </p>
-          <Link
-            to="/cardapio"
-            className="inline-block mt-10 bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl hover:bg-yellow-300 transition"
-          >
-            Ver Cardápio
-          </Link>
-        </div>
+    <div className="home">
+      <header className="home__header">
+        <h1>🍣 Esthan Sushi</h1>
+        <nav>
+          <Link to="/">Início</Link>
+          <Link to="/cardapio">Cardápio</Link>
+          <Link to="/login">Admin</Link>
+        </nav>
+      </header>
+
+      <section className="home__banner">
+        <h2>O sabor do Japão perto de você</h2>
+        <p>Temakis • Hot Rolls • Uramakis • Combinados • Delivery</p>
+        <Link to="/cardapio">Ver Cardápio</Link>
       </section>
 
-      {/* Categorias */}
-      <section className="max-w-7xl mx-auto py-16 px-6">
-        <h2 className="text-3xl md:text-4xl text-center text-yellow-400 font-bold mb-12">
-          Nosso Cardápio
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <section className="home__categorias">
+        <h2>Nosso Cardápio</h2>
+        <div className="grid">
           {categorias.map((categoria) => (
-            <Link
-              key={categoria.nome}
-              to="/cardapio"
-              className="bg-zinc-900 rounded-2xl p-6 text-center hover:bg-red-700 transition"
-            >
-              <div className="text-5xl">{categoria.emoji}</div>
-              <h3 className="mt-4 text-lg font-semibold">{categoria.nome}</h3>
-            </Link>
+            <div key={categoria.nome} className="categoria-card">
+              <div className="emoji">{categoria.emoji}</div>
+              <h3>{categoria.nome}</h3>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Destaques */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <h2 className="text-3xl md:text-4xl text-center text-yellow-400 font-bold mb-10">
-          Destaques
-        </h2>
-
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {destaques.map((produto) => (
-            <ProductCard key={produto.id} produto={produto} />
-          ))}
-        </div>
-      </section>
+      <footer className="home__footer">
+        <h2>Esthan Sushi</h2>
+        <p>© 2026 Esthan Sushi - Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 }
