@@ -1,25 +1,44 @@
-:root {
-  color-scheme: dark;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-zinc-100 font-sans antialiased;
+  }
 }
 
-body {
-  margin: 0;
-  background: #09090b;
-  color: #fff;
-}
-
-a {
-  color: #facc15;
-  text-decoration: none;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-}
-
-button {
-  cursor: pointer;
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition
+      focus:outline-none focus:ring-2 focus:ring-brand/60 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-ink-950 hover:bg-brand-dark px-5 py-3;
+  }
+  .btn-accent {
+    @apply btn bg-accent text-white hover:bg-accent-dark px-5 py-3;
+  }
+  .btn-ghost {
+    @apply btn border border-ink-700 text-zinc-200 hover:border-brand hover:text-brand px-4 py-2;
+  }
+  .chip {
+    @apply whitespace-nowrap rounded-full border border-ink-700 px-4 py-1.5 text-sm font-medium
+      text-zinc-300 transition hover:border-brand hover:text-brand;
+  }
+  .chip-active {
+    @apply border-brand bg-brand text-ink-950 hover:text-ink-950;
+  }
+  .card {
+    @apply rounded-2xl bg-ink-900 shadow-card ring-1 ring-white/5;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-700 bg-ink-900 px-3 py-2.5 text-sm
+      placeholder:text-zinc-500 focus:border-brand focus:outline-none;
+  }
 }

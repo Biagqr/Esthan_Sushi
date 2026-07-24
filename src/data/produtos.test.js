@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { produtos, getProdutoById, getProdutosByCategoria } from "./produtos";
+import {
+  produtos,
+  getProdutoById,
+  getProdutosByCategoria,
+  getDestaques,
+} from "./produtos";
 import { categorias } from "./categorias";
 
 describe("produtos data", () => {
@@ -45,5 +50,13 @@ describe("getProdutosByCategoria", () => {
 
   it("returns an empty array for an unknown category", () => {
     expect(getProdutosByCategoria("Inexistente")).toEqual([]);
+  });
+});
+
+describe("getDestaques", () => {
+  it("returns only products flagged as destaque", () => {
+    const destaques = getDestaques();
+    expect(destaques.length).toBeGreaterThan(0);
+    expect(destaques.every((p) => p.destaque === true)).toBe(true);
   });
 });

@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
+import { createContext, useCallback, useContext, useMemo, useReducer, useState } from "react";
 import {
   cartReducer,
   initialCartState,
@@ -10,12 +10,24 @@ const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialCartState);
+  const [isOpen, setIsOpen] = useState(false);
+  const [coupon, setCoupon] = useState("");
+
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
+  const toggleCart = useCallback(() => setIsOpen((v) => !v), []);
 
   const value = useMemo(
     () => ({
       items: state.items,
       totalItems: selectTotalItems(state),
       subtotal: selectSubtotal(state),
+      isOpen,
+      openCart,
+      closeCart,
+      toggleCart,
+      coupon,
+      setCoupon,
       addItem: (product, quantity = 1) =>
         dispatch({ type: "ADD_ITEM", payload: { product, quantity } }),
       removeItem: (id) => dispatch({ type: "REMOVE_ITEM", payload: { id } }),
@@ -23,7 +35,7 @@ export function CartProvider({ children }) {
         dispatch({ type: "SET_QUANTITY", payload: { id, quantity } }),
       clearCart: () => dispatch({ type: "CLEAR_CART" }),
     }),
-    [state]
+    [state, isOpen, coupon, openCart, closeCart, toggleCart]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
